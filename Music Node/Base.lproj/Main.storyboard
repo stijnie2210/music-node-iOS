@@ -124,7 +124,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="nMg-mp-KaT" kind="show" id="Gmy-qj-lVJ"/>
+                                    <segue destination="YmW-Rv-yXn" kind="show" id="hTe-98-7Bp"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -140,22 +140,53 @@
             <point key="canvasLocation" x="-254" y="1029"/>
         </scene>
         <!--Playlist Detail Controller-->
-        <scene sceneID="adw-OK-Mke">
+        <scene sceneID="BTT-Dg-pnA">
             <objects>
-                <viewController id="nMg-mp-KaT" customClass="PlaylistDetailController" customModule="Music_Node" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="YmW-Rv-yXn" customClass="PlaylistDetailController" customModule="Music_Node" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="C6v-dL-bNp"/>
-                        <viewControllerLayoutGuide type="bottom" id="I7s-oE-Qnn"/>
+                        <viewControllerLayoutGuide type="top" id="J9Q-5z-8xy"/>
+                        <viewControllerLayoutGuide type="bottom" id="FEW-5p-qh1"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="mVE-OJ-CER">
+                    <view key="view" contentMode="scaleToFill" id="wIn-f4-riP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z6x-QT-e6L">
+                                <rect key="frame" x="16" y="135" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="onEdit:" destination="YmW-Rv-yXn" eventType="editingChanged" id="5zw-ro-l2A"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j2x-DN-CJ1">
+                                <rect key="frame" x="146" y="606" width="83" height="41"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.99198132753372192" green="0.99604541063308716" blue="0.99596863985061646" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Opslaan"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1S-kl-3gq">
+                                <rect key="frame" x="16" y="88" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="nameEditField" destination="z6x-QT-e6L" id="aZe-Xw-tsh"/>
+                        <outlet property="nameLabel" destination="n1S-kl-3gq" id="UWc-MO-KIt"/>
+                        <outlet property="saveButton" destination="j2x-DN-CJ1" id="jwa-Dc-ppn"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uU3-x1-m7V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="11V-HY-kBb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="625" y="1068"/>
+            <point key="canvasLocation" x="621.60000000000002" y="1033.1334332833585"/>
         </scene>
     </scenes>
 </document>

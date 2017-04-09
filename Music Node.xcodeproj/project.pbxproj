@@ -13,8 +13,8 @@
 		36B2CFD71E97F20C00CC7917 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36B2CFD61E97F20C00CC7917 /* Assets.xcassets */; };
 		36B2CFDA1E97F20C00CC7917 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36B2CFD81E97F20C00CC7917 /* LaunchScreen.storyboard */; };
 		36B2CFE21E97F56B00CC7917 /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B2CFE11E97F56B00CC7917 /* PlaylistViewController.swift */; };
-		36B2CFE41E97F6A900CC7917 /* PlaylistDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B2CFE31E97F6A900CC7917 /* PlaylistDetailController.swift */; };
 		36DA06681E9A5780001A915D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DA06671E9A5780001A915D /* LoginViewController.swift */; };
+		36DA066A1E9AA6B1001A915D /* PlaylistDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DA06691E9AA6B1001A915D /* PlaylistDetailController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,8 +26,8 @@
 		36B2CFD91E97F20C00CC7917 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		36B2CFDB1E97F20C00CC7917 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36B2CFE11E97F56B00CC7917 /* PlaylistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistViewController.swift; sourceTree = "<group>"; };
-		36B2CFE31E97F6A900CC7917 /* PlaylistDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistDetailController.swift; sourceTree = "<group>"; };
 		36DA06671E9A5780001A915D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		36DA06691E9AA6B1001A915D /* PlaylistDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistDetailController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,8 +67,8 @@
 				36B2CFD81E97F20C00CC7917 /* LaunchScreen.storyboard */,
 				36B2CFDB1E97F20C00CC7917 /* Info.plist */,
 				36B2CFE11E97F56B00CC7917 /* PlaylistViewController.swift */,
-				36B2CFE31E97F6A900CC7917 /* PlaylistDetailController.swift */,
 				36DA06671E9A5780001A915D /* LoginViewController.swift */,
+				36DA06691E9AA6B1001A915D /* PlaylistDetailController.swift */,
 			);
 			path = "Music Node";
 			sourceTree = "<group>";
@@ -146,9 +146,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36DA066A1E9AA6B1001A915D /* PlaylistDetailController.swift in Sources */,
 				36B2CFD21E97F20C00CC7917 /* ViewController.swift in Sources */,
 				36B2CFD01E97F20C00CC7917 /* AppDelegate.swift in Sources */,
-				36B2CFE41E97F6A900CC7917 /* PlaylistDetailController.swift in Sources */,
 				36DA06681E9A5780001A915D /* LoginViewController.swift in Sources */,
 				36B2CFE21E97F56B00CC7917 /* PlaylistViewController.swift in Sources */,
 			);

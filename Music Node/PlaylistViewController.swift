@@ -12,14 +12,20 @@ import UIKit
 
 class PlaylistViewController : UITableViewController {
     
+    @IBOutlet weak var editButton: UIBarButtonItem!
+    
     var token:String?
     var playlists = [(String)]()
+    var playlistData = [([String(), String()])]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         
-        let playlist_url = "https://music-node-api.herokuapp.com/api/playlists"
+        
+        let playlist_url = "https://music-node-api.herokuapp.com/api/users/playlists"
         
         let url:URL = URL(string: playlist_url)!
         var request = URLRequest(url: url)
@@ -41,8 +47,10 @@ class PlaylistViewController : UITableViewController {
                     DispatchQueue.main.async {
                         
                     for data in playlistsJson {
+                        print(data["_id"]!)
                         self.playlists.append(data["name"] as! String)
-                        print(self.playlists)
+                        self.playlistData.append([data["_id"] as! String, data["name"] as! String])
+                        self.tableView.reloadData()
                     }
                 }
                 
@@ -57,6 +65,7 @@ class PlaylistViewController : UITableViewController {
     }
     
     
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 
@@ -67,6 +76,7 @@ class PlaylistViewController : UITableViewController {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
+    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -81,17 +91,21 @@ class PlaylistViewController : UITableViewController {
         
         // Configure the cell...
         
-        // Example data from other project
-        
-//        let player = players[indexPath.row] as Player
-//        cell.textLabel?.text = player.name
-//        cell.detailTextLabel?.text = "Game: \(player.game)"
-//        cell.imageView?.image = player.image
-        
-        
         let playlist = self.playlists[indexPath.row]
         cell.textLabel?.text = playlist
         
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let playlist = playlistData[tableView.indexPathForSelectedRow!.row + 1]
+        let validToken = self.token!
+        print(playlist[1])
+        
+        if let details = segue.destination as? PlaylistDetailController {
+            details.id = playlist[0]
+            details.name = playlist[1]
+            //details.token = validToken
+        }
     }
 }
