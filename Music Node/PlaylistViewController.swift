@@ -9,25 +9,16 @@
 import Foundation
 import UIKit
 
-struct Playlist {
-    var name:String
-    var numberOfTracks:Int
-    
-    init(name: String, numberOfTracks:Int) {
-        self.name = name
-        self.numberOfTracks = numberOfTracks
-    }
-}
 
 class PlaylistViewController : UITableViewController {
     
-    let testPlaylists = [
-        Playlist(name: "Playlist 1", numberOfTracks: 5),
-        Playlist(name: "Playlist 2", numberOfTracks: 10)
-    ]
+    var token:String = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
     }
     
@@ -47,7 +38,7 @@ class PlaylistViewController : UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         
         // TODO: Get playlist data and return number of rows based on array size
-        return testPlaylists.count
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -62,8 +53,6 @@ class PlaylistViewController : UITableViewController {
 //        cell.detailTextLabel?.text = "Game: \(player.game)"
 //        cell.imageView?.image = player.image
         
-        cell.textLabel?.text = testPlaylists[indexPath.row].name
-        cell.detailTextLabel?.text = String(testPlaylists[indexPath.row].numberOfTracks)
         
         
         return cell
