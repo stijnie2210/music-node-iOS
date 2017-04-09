@@ -13,6 +13,8 @@ import UIKit
 class PlaylistViewController : UITableViewController {
     
     @IBOutlet weak var editButton: UIBarButtonItem!
+    @IBOutlet weak var reloadButton: UIBarButtonItem!
+    
     
     var token:String?
     var playlists = [(String)]()
@@ -25,6 +27,17 @@ class PlaylistViewController : UITableViewController {
         self.tableView.dataSource = self
         
         
+        loadPlaylists()
+    }
+    
+    
+    @IBAction func reloadPlaylists(_ sender: Any) {
+        self.playlists.removeAll()
+        loadPlaylists()
+    }
+    
+    
+    func loadPlaylists() {
         let playlist_url = "https://music-node-api.herokuapp.com/api/users/playlists"
         
         let url:URL = URL(string: playlist_url)!
@@ -41,11 +54,11 @@ class PlaylistViewController : UITableViewController {
                 let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
                 
                 
+                
+                let playlistsJson = json["data"] as! [[String:Any]]
+                
+                DispatchQueue.main.async {
                     
-                    let playlistsJson = json["data"] as! [[String:Any]]
-                    
-                    DispatchQueue.main.async {
-                        
                     for data in playlistsJson {
                         print(data["_id"]!)
                         self.playlists.append(data["name"] as! String)
@@ -105,7 +118,7 @@ class PlaylistViewController : UITableViewController {
         if let details = segue.destination as? PlaylistDetailController {
             details.id = playlist[0]
             details.name = playlist[1]
-            //details.token = validToken
+            details.token = validToken
         }
     }
 }
