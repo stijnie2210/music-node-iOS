@@ -82,12 +82,15 @@ class LoginViewController: UIViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let validToken = self.token!
         
         if(segue.identifier == "login") {
-            print(segue.destination)
-            if let playlistView = segue.destination as? PlaylistViewController {
-                playlistView.token = token!
-            }
+            let navController = segue.destination as? UINavigationController
+            
+            let playlistView = navController?.viewControllers.first as! PlaylistViewController
+            
+            playlistView.token = validToken
+            
         }
         
     }
