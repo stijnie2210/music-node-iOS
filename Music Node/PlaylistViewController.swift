@@ -122,8 +122,8 @@ class PlaylistViewController : UITableViewController {
     
     @IBAction func doLogout(_ sender: Any) {
         let alert = UIAlertController(title: "Uitloggen", message: "Weet je zeker dat je wil uitloggen?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Yes", style: .destructive) { action in
+        alert.addAction(UIAlertAction(title: "Nee", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Ja", style: .destructive) { action in
             
             UserDefaults.standard.removeObject(forKey: "token")
             self.performSegue(withIdentifier: "doLogout", sender: self.logoutButton)
