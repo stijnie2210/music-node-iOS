@@ -80,13 +80,6 @@ class PlaylistDetailController : UIViewController {
         
         let task = URLSession.shared.dataTask(with: request) {data, response, err in
             
-            do {
-                let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
-                
-                
-            } catch {
-                
-            }
             
             DispatchQueue.main.async {
                 self.tempViewController?.reloadtableView()

@@ -12,8 +12,10 @@ import UIKit
 
 class PlaylistViewController : UITableViewController {
     
-    @IBOutlet weak var editButton: UIBarButtonItem!
     @IBOutlet weak var reloadButton: UIBarButtonItem!
+    @IBOutlet weak var logoutButton: UIBarButtonItem!
+    @IBOutlet weak var loadIndicator: UIActivityIndicatorView!
+    
     
     
     var token:String?
@@ -22,7 +24,7 @@ class PlaylistViewController : UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
@@ -39,12 +41,23 @@ class PlaylistViewController : UITableViewController {
     func reloadtableView() {
         self.playlists.removeAll()
         self.playlistData.removeAll()
-        loadPlaylists()
+        self.tableView.reloadData()
+        self.loadPlaylists()
+    }
+    
+    func showAlert() {
+        let alert = UIAlertController(title: "Uitloggen", message: "Weet je zeker dat je wil uitloggen?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Yes", style: .destructive) { action in
+            
+            
+        })
     }
     
     
     func loadPlaylists() {
-        let playlist_url = "https://music-node-api.herokuapp.com/api/users/playlists"
+        self.loadIndicator.startAnimating()
+        let playlist_url = "https://music-node-api.herokuapp.com/api/users/playlists?limit=25"
         
         let url:URL = URL(string: playlist_url)!
         var request = URLRequest(url: url)
@@ -70,6 +83,7 @@ class PlaylistViewController : UITableViewController {
                         self.playlistData.append([data["_id"] as! String, data["name"] as! String])
                         self.playlists.append(data["name"] as! String)
                         self.tableView.reloadData()
+                        self.loadIndicator.stopAnimating()
                     }
                 }
                 
@@ -116,7 +130,26 @@ class PlaylistViewController : UITableViewController {
         return cell
     }
     
+    @IBAction func doLogout(_ sender: Any) {
+        let alert = UIAlertController(title: "Uitloggen", message: "Weet je zeker dat je wil uitloggen?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Yes", style: .destructive) { action in
+            
+            UserDefaults.standard.removeObject(forKey: "token")
+            self.performSegue(withIdentifier: "doLogout", sender: self.logoutButton)
+        })
+        
+        self.present(alert, animated: true)
+        
+    }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "doLogout") {
+            self.dismiss(animated: true, completion: nil)
+            return
+        }
+        
         let playlist = playlistData[tableView.indexPathForSelectedRow!.row]
         let validToken = self.token!
         print(playlist[1])

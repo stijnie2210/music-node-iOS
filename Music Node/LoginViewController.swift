@@ -17,10 +17,19 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var loadIndicator: UIActivityIndicatorView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard))
+        
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     @IBAction func doLogin(_ sender: Any) {
@@ -32,6 +41,8 @@ class LoginViewController: UIViewController {
     }
     
     func loginNow(email:String, password:String) {
+        self.loginButton.isEnabled = false
+        self.loadIndicator.startAnimating()
         let postData: NSDictionary = NSMutableDictionary()
         
         postData.setValue(email, forKey: "email")
@@ -59,8 +70,11 @@ class LoginViewController: UIViewController {
                 let token = json["token"] as! String?
                 
                 DispatchQueue.main.async {
+                    self.loginButton.isEnabled = true
+                    self.loadIndicator.stopAnimating()
                     if(token != nil) {
                         self.token = token
+                        UserDefaults.standard.set(token, forKey: "token")
                         self.doSegue()
                     }
                 }
