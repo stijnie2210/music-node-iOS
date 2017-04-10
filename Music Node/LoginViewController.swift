@@ -46,6 +46,8 @@ class LoginViewController: UIViewController {
         
         if(emailTextField.text! != "" && passwordTextField.text! != "") {
             loginNow(email: emailTextField.text!, password: passwordTextField.text!)
+        } else {
+            
         }
         
     }
