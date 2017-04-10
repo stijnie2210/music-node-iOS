@@ -110,15 +110,14 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNC-8k-K85">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bjz-Kk-UVs">
                                 <rect key="frame" x="209" y="606" width="150" height="41"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" red="0.99198132750000001" green="0.99604541059999996" blue="0.99596863989999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.99198132753372192" green="0.99604541063308716" blue="0.99596863985061646" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Registreren"/>
                                 <connections>
-                                    <action selector="doLogin:" destination="7Af-5q-bBm" eventType="touchUpInside" id="qwi-Sj-u7Z"/>
-                                    <action selector="toSignupScreen:" destination="7Af-5q-bBm" eventType="touchUpInside" id="8a3-qD-LH9"/>
+                                    <action selector="toSignupScreen:" destination="7Af-5q-bBm" eventType="touchUpInside" id="pFM-ZL-Vic"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -135,7 +134,7 @@
                         <outlet property="loadIndicator" destination="xXz-bS-K0y" id="zpw-gJ-Pag"/>
                         <outlet property="loginButton" destination="Xx5-nl-1hF" id="cIu-rU-b5F"/>
                         <outlet property="passwordTextField" destination="kNa-aZ-cd8" id="LjL-Fh-0dA"/>
-                        <outlet property="signupButton" destination="eNC-8k-K85" id="rmC-8H-w7e"/>
+                        <outlet property="signupButton" destination="Bjz-Kk-UVs" id="RSB-dQ-LnD"/>
                         <segue destination="FGP-x6-rFc" kind="show" identifier="login" id="zm2-pi-XEn"/>
                         <segue destination="lCC-tO-ovF" kind="show" identifier="toSignupScreen" id="gy5-5c-Lb4"/>
                     </connections>
