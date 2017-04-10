@@ -20,9 +20,19 @@
                     <view key="view" contentMode="scaleToFill" id="aDe-ji-nVH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="7xX-Wb-ymg">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="7xX-Wb-ymg" firstAttribute="centerX" secondItem="aDe-ji-nVH" secondAttribute="centerX" id="HgG-cj-tkF"/>
+                            <constraint firstItem="7xX-Wb-ymg" firstAttribute="centerY" secondItem="aDe-ji-nVH" secondAttribute="centerY" id="wm8-Ib-jbb"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="loadIndicator" destination="7xX-Wb-ymg" id="80G-wx-aMz"/>
                         <segue destination="7Af-5q-bBm" kind="show" identifier="tologin" id="Eb4-A1-hvd"/>
                         <segue destination="FGP-x6-rFc" kind="show" identifier="toplaylists" id="FCd-CB-SnA"/>
                     </connections>
@@ -257,7 +267,7 @@
         <image name="Image" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ugW-bo-5ny"/>
-        <segue reference="zm2-pi-XEn"/>
+        <segue reference="Eb4-A1-hvd"/>
+        <segue reference="FCd-CB-SnA"/>
     </inferredMetricsTieBreakers>
 </document>

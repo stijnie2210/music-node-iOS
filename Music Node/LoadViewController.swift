@@ -11,10 +11,15 @@ import UIKit
 
 class LoadViewController : UIViewController {
     
+    @IBOutlet weak var loadIndicator: UIActivityIndicatorView!
+    
     override func viewDidAppear(_ animated: Bool) {
+        loadIndicator.startAnimating()
         if(UserDefaults.standard.value(forKey: "token") == nil) {
+            loadIndicator.stopAnimating()
             performSegue(withIdentifier: "tologin", sender: self)
         } else {
+            loadIndicator.stopAnimating()
             performSegue(withIdentifier: "toplaylists", sender: self)
         }
     }

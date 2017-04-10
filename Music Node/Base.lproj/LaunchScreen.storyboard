@@ -21,17 +21,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IjB-R6-Ocw">
-                                <rect key="frame" x="134.5" y="312" width="106" height="43"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="36"/>
-                                <color key="textColor" red="0.99198132753372192" green="0.99604541063308716" blue="0.99596863985061646" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Music" translatesAutoresizingMaskIntoConstraints="NO" id="mOe-XB-eeg">
+                                <rect key="frame" x="163" y="310" width="48" height="48"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="IjB-R6-Ocw" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="TwG-V5-TTB"/>
-                            <constraint firstItem="IjB-R6-Ocw" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="rld-H0-wn7"/>
+                            <constraint firstItem="mOe-XB-eeg" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="8x4-F7-zPo"/>
+                            <constraint firstItem="mOe-XB-eeg" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="b2O-li-750"/>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
@@ -41,4 +38,7 @@
             <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Music" width="48" height="48"/>
+    </resources>
 </document>
