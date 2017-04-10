@@ -26,13 +26,19 @@ class PlaylistViewController : UITableViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        
+        playlistData.removeAll()
         loadPlaylists()
     }
     
     
     @IBAction func reloadPlaylists(_ sender: Any) {
+        reloadtableView()
+    }
+    
+    
+    func reloadtableView() {
         self.playlists.removeAll()
+        self.playlistData.removeAll()
         loadPlaylists()
     }
     
@@ -61,8 +67,8 @@ class PlaylistViewController : UITableViewController {
                     
                     for data in playlistsJson {
                         print(data["_id"]!)
-                        self.playlists.append(data["name"] as! String)
                         self.playlistData.append([data["_id"] as! String, data["name"] as! String])
+                        self.playlists.append(data["name"] as! String)
                         self.tableView.reloadData()
                     }
                 }
@@ -111,11 +117,12 @@ class PlaylistViewController : UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let playlist = playlistData[tableView.indexPathForSelectedRow!.row + 1]
+        let playlist = playlistData[tableView.indexPathForSelectedRow!.row]
         let validToken = self.token!
         print(playlist[1])
         
         if let details = segue.destination as? PlaylistDetailController {
+            details.tempViewController = self
             details.id = playlist[0]
             details.name = playlist[1]
             details.token = validToken

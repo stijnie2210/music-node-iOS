@@ -26,11 +26,18 @@ class PlaylistDetailController : UIViewController {
         
         saveButton.isEnabled = false
         
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PlaylistDetailController.dismissKeyboard))
+        
+        view.addGestureRecognizer(tap)
+        
         
         nameLabel.text = "\(name!) aanpassen"
         nameEditField.placeholder = "\(name!)"
     }
     
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
     
     @IBAction func onEdit(_ sender: Any) {
         if(nameEditField.text != "") {
@@ -76,20 +83,21 @@ class PlaylistDetailController : UIViewController {
             do {
                 let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
                 
-                self.tempViewController?.playlists.removeAll()
-                self.tempViewController?.loadPlaylists()
-                
-                
                 
             } catch {
                 
+            }
+            
+            DispatchQueue.main.async {
+                self.tempViewController?.reloadtableView()
+                self.showAlert()
             }
             
         }
         
         task.resume()
 
-        self.showAlert()
+        //self.showAlert()
     }
     
     
