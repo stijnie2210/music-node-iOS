@@ -235,7 +235,7 @@
                                     <action selector="onEdit:" destination="YmW-Rv-yXn" eventType="editingChanged" id="5zw-ro-l2A"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Playlistnaam" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1S-kl-3gq">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Playlistnaam" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1S-kl-3gq">
                                 <rect key="frame" x="16" y="90" width="343" height="22"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <nil key="textColor"/>
@@ -291,7 +291,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ugW-bo-5ny"/>
-        <segue reference="IsA-jq-GTQ"/>
+        <segue reference="C9R-A7-lco"/>
         <segue reference="zm2-pi-XEn"/>
     </inferredMetricsTieBreakers>
 </document>
