@@ -105,8 +105,6 @@ class PlaylistDetailController : UIViewController {
         }
         
         task.resume()
-
-        //self.showAlert()
     }
     
     

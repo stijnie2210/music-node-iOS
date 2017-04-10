@@ -17,7 +17,6 @@ class PlaylistViewController : UITableViewController {
     @IBOutlet weak var loadIndicator: UIActivityIndicatorView!
     
     
-    
     var token:String?
     var playlists = [(String)]()
     var playlistData = [([String(), String()])]
@@ -64,7 +63,6 @@ class PlaylistViewController : UITableViewController {
                 let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
                 
                 
-                
                 let playlistsJson = json["data"] as! [[String:Any]]
                 
                 DispatchQueue.main.async {
@@ -86,7 +84,6 @@ class PlaylistViewController : UITableViewController {
         task.resume()
 
     }
-    
     
     
     override func didReceiveMemoryWarning() {
@@ -132,7 +129,6 @@ class PlaylistViewController : UITableViewController {
         self.present(alert, animated: true)
         
     }
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "doLogout") {

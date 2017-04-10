@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		367BD5631E9C0E9F00773F30 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367BD5621E9C0E9F00773F30 /* SignupViewController.swift */; };
 		36910C5A1E9B9CC600E33C3F /* LoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36910C591E9B9CC600E33C3F /* LoadViewController.swift */; };
 		36B2CFD01E97F20C00CC7917 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B2CFCF1E97F20C00CC7917 /* AppDelegate.swift */; };
 		36B2CFD21E97F20C00CC7917 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B2CFD11E97F20C00CC7917 /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		367BD5621E9C0E9F00773F30 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		36910C591E9B9CC600E33C3F /* LoadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadViewController.swift; sourceTree = "<group>"; };
 		36B2CFCC1E97F20C00CC7917 /* Music Node.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Music Node.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		36B2CFCF1E97F20C00CC7917 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				36DA06671E9A5780001A915D /* LoginViewController.swift */,
 				36DA06691E9AA6B1001A915D /* PlaylistDetailController.swift */,
 				36910C591E9B9CC600E33C3F /* LoadViewController.swift */,
+				367BD5621E9C0E9F00773F30 /* SignupViewController.swift */,
 			);
 			path = "Music Node";
 			sourceTree = "<group>";
@@ -150,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36910C5A1E9B9CC600E33C3F /* LoadViewController.swift in Sources */,
+				367BD5631E9C0E9F00773F30 /* SignupViewController.swift in Sources */,
 				36DA066A1E9AA6B1001A915D /* PlaylistDetailController.swift in Sources */,
 				36B2CFD21E97F20C00CC7917 /* ViewController.swift in Sources */,
 				36B2CFD01E97F20C00CC7917 /* AppDelegate.swift in Sources */,
