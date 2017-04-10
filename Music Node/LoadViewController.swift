@@ -16,17 +16,14 @@ class LoadViewController : UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         loadIndicator.startAnimating()
         if(UserDefaults.standard.value(forKey: "token") == nil) {
-            loadIndicator.stopAnimating()
             performSegue(withIdentifier: "tologin", sender: self)
         } else {
-            loadIndicator.stopAnimating()
             performSegue(withIdentifier: "toplaylists", sender: self)
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "toplaylists") {
-            print(UserDefaults.standard.string(forKey: "token")!)
             
             let navController = segue.destination as? UINavigationController
             

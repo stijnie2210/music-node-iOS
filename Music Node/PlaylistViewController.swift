@@ -45,15 +45,6 @@ class PlaylistViewController : UITableViewController {
         self.loadPlaylists()
     }
     
-    func showAlert() {
-        let alert = UIAlertController(title: "Uitloggen", message: "Weet je zeker dat je wil uitloggen?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Yes", style: .destructive) { action in
-            
-            
-        })
-    }
-    
     
     func loadPlaylists() {
         self.loadIndicator.startAnimating()
@@ -79,7 +70,6 @@ class PlaylistViewController : UITableViewController {
                 DispatchQueue.main.async {
                     
                     for data in playlistsJson {
-                        print(data["_id"]!)
                         self.playlistData.append([data["_id"] as! String, data["name"] as! String])
                         self.playlists.append(data["name"] as! String)
                         self.tableView.reloadData()
@@ -152,7 +142,6 @@ class PlaylistViewController : UITableViewController {
         
         let playlist = playlistData[tableView.indexPathForSelectedRow!.row]
         let validToken = self.token!
-        print(playlist[1])
         
         if let details = segue.destination as? PlaylistDetailController {
             details.tempViewController = self

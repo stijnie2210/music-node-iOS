@@ -14,6 +14,7 @@ class PlaylistDetailController : UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var nameEditField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var loadIndicator: UIActivityIndicatorView!
     
     
     var name:String?
@@ -50,12 +51,25 @@ class PlaylistDetailController : UIViewController {
     func showAlert() {
         let alertController = UIAlertController(title: "Gelukt!", message:
             "Afspeellijst opgeslagen!", preferredStyle: UIAlertControllerStyle.alert)
-        alertController.addAction(UIAlertAction(title: "Oké", style: UIAlertActionStyle.default,handler: nil))
+        alertController.addAction(UIAlertAction(title: "Oké", style: UIAlertActionStyle.default) { action in
+                self.performSegue(withIdentifier: "backToPlaylists", sender: self)
+            })
         
         self.present(alertController, animated: true, completion: nil)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "backToPlaylists") {
+            if let playlists = segue.destination as? PlaylistViewController {
+                playlists.token = self.token
+            }
+        }
+    }
+    
     @IBAction func onSave(_ sender: Any) {
+        self.loadIndicator.startAnimating()
+        self.saveButton.isEnabled = false
+        
         let playlist_url = "https://music-node-api.herokuapp.com/api/playlists/\(id!)/name"
         let postData: NSDictionary = NSMutableDictionary()
         
@@ -82,6 +96,8 @@ class PlaylistDetailController : UIViewController {
             
             
             DispatchQueue.main.async {
+                self.loadIndicator.stopAnimating()
+                self.saveButton.isEnabled = true
                 self.tempViewController?.reloadtableView()
                 self.showAlert()
             }
