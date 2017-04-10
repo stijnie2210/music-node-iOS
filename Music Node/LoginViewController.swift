@@ -31,6 +31,14 @@ class LoginViewController: UIViewController {
     func dismissKeyboard() {
         view.endEditing(true)
     }
+    func showAlert() {
+        let alertController = UIAlertController(title: "Fout", message:
+            "Inloggegevens incorrect", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Oké", style: UIAlertActionStyle.default, handler: nil))
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+
     
     @IBAction func doLogin(_ sender: Any) {
         
@@ -76,6 +84,9 @@ class LoginViewController: UIViewController {
                         self.token = token
                         UserDefaults.standard.set(token, forKey: "token")
                         self.doSegue()
+                    } else {
+                        self.passwordTextField.text = ""
+                        self.showAlert()
                     }
                 }
                 
