@@ -55,6 +55,7 @@ class PlaylistDetailController : UIViewController {
         self.loadIndicator.startAnimating()
         
         DispatchQueue.global().async {
+            self.navigationItem.hidesBackButton = true
             
             let text = "Check mijn playlist \(self.name!)"
             
@@ -65,6 +66,7 @@ class PlaylistDetailController : UIViewController {
             activityViewController.excludedActivityTypes = [ UIActivityType.airDrop, UIActivityType.postToFacebook ]
             
             self.present(activityViewController, animated: true, completion: nil)
+            self.navigationItem.hidesBackButton = false
             
             DispatchQueue.main.async {
                 self.loadIndicator.stopAnimating()
