@@ -9,7 +9,6 @@ class PlaylistDetailController : UIViewController {
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var loadIndicator: UIActivityIndicatorView!
     
-    
     var name:String?
     var id:String?
     var token:String?
@@ -52,16 +51,27 @@ class PlaylistDetailController : UIViewController {
     }
     
     @IBAction func onShare(_ sender: Any) {
-
-        let text = "Check mijn playlist \(self.name!)"
         
-        let textToShare = [ text ]
-        let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
-        activityViewController.popoverPresentationController?.sourceView = self.view
+        self.loadIndicator.startAnimating()
         
-        activityViewController.excludedActivityTypes = [ UIActivityType.airDrop, UIActivityType.postToFacebook ]
+        DispatchQueue.global().async {
+            
+            let text = "Check mijn playlist \(self.name!)"
+            
+            let textToShare = [ text ]
+            let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+            activityViewController.popoverPresentationController?.sourceView = self.view
+            
+            activityViewController.excludedActivityTypes = [ UIActivityType.airDrop, UIActivityType.postToFacebook ]
+            
+            self.present(activityViewController, animated: true, completion: nil)
+            
+            DispatchQueue.main.async {
+                self.loadIndicator.stopAnimating()
+            }
+        }
         
-        self.present(activityViewController, animated: true, completion: nil)
+        
     }
     
     

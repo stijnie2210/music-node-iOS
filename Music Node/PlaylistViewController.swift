@@ -1,11 +1,3 @@
-//
-//  PlaylistViewController.swift
-//  Music Node
-//
-//  Created by Stijn Mommersteeg on 07/04/2017.
-//  Copyright © 2017 chocomel. All rights reserved.
-//
-
 import Foundation
 import UIKit
 
@@ -15,7 +7,6 @@ class PlaylistViewController : UITableViewController {
     @IBOutlet weak var reloadButton: UIBarButtonItem!
     @IBOutlet weak var logoutButton: UIBarButtonItem!
     @IBOutlet weak var loadIndicator: UIActivityIndicatorView!
-    
     
     var token:String?
     var playlists = [(String)]()
