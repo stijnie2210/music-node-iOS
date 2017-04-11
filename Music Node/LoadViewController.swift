@@ -1,11 +1,3 @@
-//
-//  LoadViewController.swift
-//  Music Node
-//
-//  Created by Stijn Mommersteeg on 10/04/2017.
-//  Copyright © 2017 chocomel. All rights reserved.
-//
-
 import Foundation
 import UIKit
 

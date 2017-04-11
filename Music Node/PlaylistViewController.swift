@@ -66,6 +66,7 @@ class PlaylistViewController : UITableViewController {
                 let playlistsJson = json["data"] as! [[String:Any]]
                 
                 DispatchQueue.main.async {
+                    self.loadIndicator.stopAnimating()
                     
                     for data in playlistsJson {
                         self.playlistData.append([data["_id"] as! String, data["name"] as! String])

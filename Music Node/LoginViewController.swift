@@ -1,11 +1,3 @@
-//
-//  LoginViewController.swift
-//  Music Node
-//
-//  Created by Stijn Mommersteeg on 09/04/2017.
-//  Copyright © 2017 chocomel. All rights reserved.
-//
-
 import Foundation
 import UIKit
 
@@ -56,6 +48,7 @@ class LoginViewController: UIViewController {
     
     func loginNow(email:String, password:String) {
         self.loginButton.isEnabled = false
+        self.signupButton.isEnabled = false
         self.loadIndicator.startAnimating()
         let postData: NSDictionary = NSMutableDictionary()
         
@@ -85,6 +78,7 @@ class LoginViewController: UIViewController {
                 
                 DispatchQueue.main.async {
                     self.loginButton.isEnabled = true
+                    self.signupButton.isEnabled = true
                     self.loadIndicator.stopAnimating()
                     if(token != nil) {
                         self.token = token

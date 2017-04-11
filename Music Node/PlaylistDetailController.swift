@@ -1,11 +1,3 @@
-//
-//  PlaylistDetailController.swift
-//  Music Node
-//
-//  Created by Stijn Mommersteeg on 07/04/2017.
-//  Copyright © 2017 chocomel. All rights reserved.
-//
-
 import Foundation
 import UIKit
 
@@ -14,6 +6,7 @@ class PlaylistDetailController : UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var nameEditField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var loadIndicator: UIActivityIndicatorView!
     
     
@@ -52,19 +45,25 @@ class PlaylistDetailController : UIViewController {
         let alertController = UIAlertController(title: "Gelukt!", message:
             "Afspeellijst opgeslagen!", preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "Oké", style: UIAlertActionStyle.default) { action in
-                self.performSegue(withIdentifier: "backToPlaylists", sender: self)
+                _ = self.navigationController?.popViewController(animated: true)
             })
         
         self.present(alertController, animated: true, completion: nil)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "backToPlaylists") {
-            if let playlists = segue.destination as? PlaylistViewController {
-                playlists.token = self.token
-            }
-        }
+    @IBAction func onShare(_ sender: Any) {
+
+        let text = "Check mijn playlist \(self.name!)"
+        
+        let textToShare = [ text ]
+        let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        
+        activityViewController.excludedActivityTypes = [ UIActivityType.airDrop, UIActivityType.postToFacebook ]
+        
+        self.present(activityViewController, animated: true, completion: nil)
     }
+    
     
     @IBAction func onSave(_ sender: Any) {
         self.loadIndicator.startAnimating()

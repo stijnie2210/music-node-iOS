@@ -183,11 +183,11 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QAc-9f-fPy" id="Qkn-UL-eHr">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yZm-VD-Rt8">
-                                            <rect key="frame" x="15" y="0.0" width="325" height="43"/>
+                                            <rect key="frame" x="15" y="0.0" width="325" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                             <nil key="textColor"/>
@@ -227,7 +227,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xkl-rQ-Egi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="662" y="926"/>
+            <point key="canvasLocation" x="662" y="976"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="uLZ-BF-Dxx">
@@ -387,17 +387,24 @@
                             <constraint firstItem="XhQ-TM-b2n" firstAttribute="centerX" secondItem="n1S-kl-3gq" secondAttribute="centerX" id="y0K-hQ-Ncq"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="HA9-eo-Stl">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="gWi-Wn-Cts">
+                            <connections>
+                                <action selector="onShare:" destination="YmW-Rv-yXn" id="Bx4-nN-8tg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="loadIndicator" destination="XhQ-TM-b2n" id="uqp-Nq-3Ft"/>
                         <outlet property="nameEditField" destination="z6x-QT-e6L" id="aZe-Xw-tsh"/>
                         <outlet property="nameLabel" destination="n1S-kl-3gq" id="UWc-MO-KIt"/>
                         <outlet property="saveButton" destination="vRq-46-lOS" id="qQD-F0-cWX"/>
-                        <segue destination="iJt-Ev-ANp" kind="show" identifier="backToPlaylists" id="C9R-A7-lco"/>
+                        <outlet property="shareButton" destination="gWi-Wn-Cts" id="Hkv-Qz-oat"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="11V-HY-kBb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-63" y="1661"/>
+            <point key="canvasLocation" x="662" y="1731"/>
         </scene>
     </scenes>
     <resources>
@@ -405,7 +412,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="zm2-pi-XEn"/>
-        <segue reference="SFU-WL-7rs"/>
-        <segue reference="C9R-A7-lco"/>
+        <segue reference="ugW-bo-5ny"/>
     </inferredMetricsTieBreakers>
 </document>
