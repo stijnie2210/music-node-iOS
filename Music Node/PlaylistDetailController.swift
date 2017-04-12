@@ -50,6 +50,17 @@ class PlaylistDetailController : UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
+    func showUnauthorized() {
+        let alertController = UIAlertController(title: "Error", message:
+            "Niet toegestaan, log opnieuw in.", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Oké", style: UIAlertActionStyle.default) { action in
+                _ = self.navigationController?.popViewController(animated: true)
+                self.tempViewController?.showUnauthorized()
+            })
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     @IBAction func onShare(_ sender: Any) {
         
         self.loadIndicator.startAnimating()
@@ -105,14 +116,22 @@ class PlaylistDetailController : UIViewController {
         
         let task = URLSession.shared.dataTask(with: request) {data, response, err in
             
-            
-            DispatchQueue.main.async {
-                self.loadIndicator.stopAnimating()
-                self.saveButton.isEnabled = true
-                self.tempViewController?.reloadtableView()
-                self.showAlert()
+            if let httpResponse = response as? HTTPURLResponse {
+                if(httpResponse.statusCode == 401) {
+                    DispatchQueue.main.async {
+                        self.loadIndicator.stopAnimating()
+                        self.saveButton.isEnabled = true
+                        self.showUnauthorized()
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.loadIndicator.stopAnimating()
+                        self.saveButton.isEnabled = true
+                        self.tempViewController?.reloadtableView()
+                        self.showAlert()
+                    }
+                }
             }
-            
         }
         
         task.resume()

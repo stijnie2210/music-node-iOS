@@ -35,6 +35,17 @@ class AddPlaylistViewController : UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
+    func showUnauthorized() {
+        let alertController = UIAlertController(title: "Error", message:
+            "Niet toegestaan, log opnieuw in.", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Oké", style: UIAlertActionStyle.default) { action in
+            _ = self.navigationController?.popViewController(animated: true)
+            self.tempViewController?.showUnauthorized()
+        })
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     @IBAction func onEdit(_ sender: Any) {
         if(nameField.text != "") {
             addButton.isEnabled = true
@@ -71,14 +82,25 @@ class AddPlaylistViewController : UIViewController {
         request.httpBody = paramString.data(using: String.Encoding.utf8)
         
         let task = URLSession.shared.dataTask(with: request) {data, response, err in
-            
-            
-            DispatchQueue.main.async {
-                self.loadIndicator.stopAnimating()
-                self.addButton.isEnabled = true
-                self.navigationItem.hidesBackButton = false
-                self.tempViewController?.reloadtableView()
-                self.showAlert()
+                
+            if let httpResponse = response as? HTTPURLResponse {
+                print(httpResponse.statusCode)
+                if(httpResponse.statusCode == 401) {
+                    DispatchQueue.main.async {
+                        self.loadIndicator.stopAnimating()
+                        self.addButton.isEnabled = true
+                        self.navigationItem.hidesBackButton = false
+                        self.showUnauthorized()
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.loadIndicator.stopAnimating()
+                        self.addButton.isEnabled = true
+                        self.navigationItem.hidesBackButton = false
+                        self.tempViewController?.reloadtableView()
+                        self.showAlert()
+                    }
+                }
             }
             
         }

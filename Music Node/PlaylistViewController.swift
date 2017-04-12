@@ -23,6 +23,17 @@ class PlaylistViewController : UITableViewController {
         loadPlaylists()
     }
     
+    func showUnauthorized() {
+        let alertController = UIAlertController(title: "Error", message:
+            "Niet toegestaan, log opnieuw in.", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Oké", style: UIAlertActionStyle.default) { action in
+                UserDefaults.standard.removeObject(forKey: "token")
+                self.performSegue(withIdentifier: "doLogout", sender: UIAlertAction.self)
+            })
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     @IBAction func addPlaylist(_ sender: Any) {
         performSegue(withIdentifier: "toAddPlaylist", sender: self.addPlaylistButton)
     }
@@ -57,22 +68,31 @@ class PlaylistViewController : UITableViewController {
         let task = URLSession.shared.dataTask(with: request) {data, response, err in
             
             do {
-                let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
-                
-                
-                let playlistsJson = json["data"] as! [[String:Any]]
-                
-                DispatchQueue.main.async {
-                    self.loadIndicator.stopAnimating()
-                    
-                    for data in playlistsJson {
-                        self.playlistData.append([data["_id"] as! String, data["name"] as! String])
-                        self.playlists.append(data["name"] as! String)
-                        self.tableView.reloadData()
-                        self.loadIndicator.stopAnimating()
+                if let httpResponse = response as? HTTPURLResponse {
+                    if(httpResponse.statusCode == 401) {
+                        DispatchQueue.main.async {
+                            self.loadIndicator.stopAnimating()
+                            self.showUnauthorized()
+                        }
+                    } else {
+                        
+                        let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
+                        
+                        
+                        let playlistsJson = json["data"] as! [[String:Any]]
+                        
+                        DispatchQueue.main.async {
+                            self.loadIndicator.stopAnimating()
+                            
+                            for data in playlistsJson {
+                                self.playlistData.append([data["_id"] as! String, data["name"] as! String])
+                                self.playlists.append(data["name"] as! String)
+                                self.tableView.reloadData()
+                                self.loadIndicator.stopAnimating()
+                            }
+                        }
                     }
                 }
-                
             } catch {
                 
             }
