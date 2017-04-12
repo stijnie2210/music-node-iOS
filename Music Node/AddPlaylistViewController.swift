@@ -19,6 +19,7 @@ class AddPlaylistViewController : UIViewController {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PlaylistDetailController.dismissKeyboard))
         
         view.addGestureRecognizer(tap)
+        nameField.placeholder = "Naam"
     }
     
     func dismissKeyboard() {

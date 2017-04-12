@@ -65,10 +65,10 @@ class PlaylistDetailController : UIViewController {
         
         self.loadIndicator.startAnimating()
         
-        DispatchQueue.global().async {
+        DispatchQueue.main.async {
             self.navigationItem.hidesBackButton = true
             
-            let text = "Check mijn playlist \(self.name!)"
+            let text = "#NowPlaying playlist: '\(self.name!)'"
             
             let textToShare = [ text ]
             let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)

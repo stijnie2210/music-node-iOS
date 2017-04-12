@@ -207,7 +207,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Mijn afspeellijsten" id="HxZ-Sg-I3g">
-                        <barButtonItem key="leftBarButtonItem" title="Uitloggen" id="zic-Eq-75l">
+                        <barButtonItem key="leftBarButtonItem" image="logout" id="zic-Eq-75l">
                             <connections>
                                 <action selector="doLogout:" destination="iJt-Ev-ANp" id="lzU-By-NJv"/>
                             </connections>
@@ -355,10 +355,11 @@
                                         <color key="textColor" red="0.99198132750000001" green="0.99604541059999996" blue="0.99596863989999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w2n-rA-eLj">
-                                        <rect key="frame" x="8" y="21" width="74" height="35"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w2n-rA-eLj">
+                                        <rect key="frame" x="8" y="26" width="36" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <state key="normal" title="Terug">
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                        <state key="normal" image="back">
                                             <color key="titleColor" red="0.99198132753372192" green="0.99604541063308716" blue="0.99596863985061646" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -380,7 +381,6 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="YHa-R6-KSE" firstAttribute="centerX" secondItem="32b-pl-hzj" secondAttribute="centerX" id="qEM-IL-11c"/>
                             <constraint firstItem="YHa-R6-KSE" firstAttribute="centerY" secondItem="32b-pl-hzj" secondAttribute="centerY" id="zcC-2M-cjC"/>
@@ -478,8 +478,12 @@
             <point key="canvasLocation" x="662" y="1731"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="back" width="24" height="24"/>
+        <image name="logout" width="24" height="24"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="zm2-pi-XEn"/>
-        <segue reference="ugW-bo-5ny"/>
+        <segue reference="SFU-WL-7rs"/>
     </inferredMetricsTieBreakers>
 </document>
