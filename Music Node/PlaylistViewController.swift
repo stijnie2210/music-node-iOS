@@ -7,6 +7,7 @@ class PlaylistViewController : UITableViewController {
     @IBOutlet weak var reloadButton: UIBarButtonItem!
     @IBOutlet weak var logoutButton: UIBarButtonItem!
     @IBOutlet weak var loadIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var addPlaylistButton: UIBarButtonItem!
     
     var token:String?
     var playlists = [(String)]()
@@ -21,6 +22,11 @@ class PlaylistViewController : UITableViewController {
         playlistData.removeAll()
         loadPlaylists()
     }
+    
+    @IBAction func addPlaylist(_ sender: Any) {
+        performSegue(withIdentifier: "toAddPlaylist", sender: self.addPlaylistButton)
+    }
+    
     
     
     @IBAction func reloadPlaylists(_ sender: Any) {
@@ -128,14 +134,25 @@ class PlaylistViewController : UITableViewController {
             return
         }
         
-        let playlist = playlistData[tableView.indexPathForSelectedRow!.row]
-        let validToken = self.token!
+        if(segue.identifier == "toAddPlaylist") {
+            let validToken = self.token!
+            
+            if let add = segue.destination as? AddPlaylistViewController {
+                add.tempViewController = self
+                add.token = validToken
+            }
+        }
         
-        if let details = segue.destination as? PlaylistDetailController {
-            details.tempViewController = self
-            details.id = playlist[0]
-            details.name = playlist[1]
-            details.token = validToken
+        if(segue.identifier == "toDetail") {
+            let playlist = playlistData[tableView.indexPathForSelectedRow!.row]
+            let validToken = self.token!
+            
+            if let details = segue.destination as? PlaylistDetailController {
+                details.tempViewController = self
+                details.id = playlist[0]
+                details.name = playlist[1]
+                details.token = validToken
+            }
         }
     }
 }

@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -84,7 +85,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xx5-nl-1hF">
                                 <rect key="frame" x="16" y="606" width="150" height="41"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.99198132753372192" green="0.99604541063308716" blue="0.99596863985061646" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Inloggen"/>
@@ -112,7 +113,7 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bjz-Kk-UVs">
                                 <rect key="frame" x="209" y="606" width="150" height="41"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.99198132753372192" green="0.99604541063308716" blue="0.99596863985061646" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Registreren"/>
@@ -183,11 +184,11 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QAc-9f-fPy" id="Qkn-UL-eHr">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yZm-VD-Rt8">
-                                            <rect key="frame" x="15" y="0.0" width="325" height="43.5"/>
+                                            <rect key="frame" x="15" y="0.0" width="325" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                             <nil key="textColor"/>
@@ -196,7 +197,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="YmW-Rv-yXn" kind="show" id="hTe-98-7Bp"/>
+                                    <segue destination="YmW-Rv-yXn" kind="show" identifier="toDetail" id="hTe-98-7Bp"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -211,23 +212,93 @@
                                 <action selector="doLogout:" destination="iJt-Ev-ANp" id="lzU-By-NJv"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="Image" id="w3e-Hb-k5m">
-                            <color key="tintColor" red="0.99198132753372192" green="0.99604541063308716" blue="0.99596863985061646" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <action selector="reloadPlaylists:" destination="iJt-Ev-ANp" id="MYB-p0-8xx"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="refresh" id="w3e-Hb-k5m">
+                                <color key="tintColor" red="0.99198132753372192" green="0.99604541063308716" blue="0.99596863985061646" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="reloadPlaylists:" destination="iJt-Ev-ANp" id="MYB-p0-8xx"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="add" id="zva-eR-1om">
+                                <connections>
+                                    <action selector="addPlaylist:" destination="iJt-Ev-ANp" id="8ex-L4-Wkg"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="addPlaylistButton" destination="zva-eR-1om" id="sTq-eE-rof"/>
                         <outlet property="loadIndicator" destination="ICz-sQ-Fze" id="XlR-qz-6N7"/>
                         <outlet property="logoutButton" destination="zic-Eq-75l" id="qz4-7M-n78"/>
                         <outlet property="reloadButton" destination="w3e-Hb-k5m" id="pX4-F0-zHq"/>
                         <segue destination="7Af-5q-bBm" kind="show" identifier="doLogout" id="ugW-bo-5ny"/>
+                        <segue destination="hbd-d7-tgi" kind="show" identifier="toAddPlaylist" id="i1U-bg-bJu"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xkl-rQ-Egi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="662" y="976"/>
+            <point key="canvasLocation" x="682" y="976"/>
+        </scene>
+        <!--Toevoegen-->
+        <scene sceneID="SsK-pq-QZJ">
+            <objects>
+                <viewController id="hbd-d7-tgi" customClass="AddPlaylistViewController" customModule="Music_Node" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="03Z-ky-EiD"/>
+                        <viewControllerLayoutGuide type="bottom" id="L8j-pY-bN6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fIo-hr-F3q">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Voer een afspeellijst naam in:" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JFk-FH-1AD">
+                                <rect key="frame" x="16" y="90" width="343" height="22"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q1P-UU-tq5">
+                                <rect key="frame" x="16" y="135" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="onEdit:" destination="hbd-d7-tgi" eventType="editingChanged" id="j5M-wd-93j"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qke-7W-Kal">
+                                <rect key="frame" x="112" y="607" width="151" height="40"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.99198132753372192" green="0.99604541063308716" blue="0.99596863985061646" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Toevoegen"/>
+                                <connections>
+                                    <action selector="onAdd:" destination="hbd-d7-tgi" eventType="touchUpInside" id="WTQ-DC-nX0"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="WHa-AJ-CW2">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WHa-AJ-CW2" firstAttribute="centerY" secondItem="fIo-hr-F3q" secondAttribute="centerY" id="56D-cn-0ly"/>
+                            <constraint firstItem="WHa-AJ-CW2" firstAttribute="centerX" secondItem="fIo-hr-F3q" secondAttribute="centerX" id="Rz1-me-EQg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Toevoegen" id="cRS-rU-9Fh"/>
+                    <connections>
+                        <outlet property="addButton" destination="Qke-7W-Kal" id="aSo-c9-TrI"/>
+                        <outlet property="loadIndicator" destination="WHa-AJ-CW2" id="qlV-NJ-5Eg"/>
+                        <outlet property="nameField" destination="Q1P-UU-tq5" id="Ufp-LE-4eU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UXW-vd-dpP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1429.5999999999999" y="975.56221889055485"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="uLZ-BF-Dxx">
@@ -343,7 +414,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z6x-QT-e6L">
                                 <rect key="frame" x="16" y="135" width="343" height="30"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="onEdit:" destination="YmW-Rv-yXn" eventType="editingChanged" id="5zw-ro-l2A"/>
@@ -351,7 +422,7 @@
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Playlistnaam" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1S-kl-3gq">
                                 <rect key="frame" x="16" y="90" width="343" height="22"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -407,9 +478,6 @@
             <point key="canvasLocation" x="662" y="1731"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Image" width="24" height="24"/>
-    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="zm2-pi-XEn"/>
         <segue reference="ugW-bo-5ny"/>

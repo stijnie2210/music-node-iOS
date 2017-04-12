@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		364CD51A1E9E6DB200B3A804 /* AddPlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364CD5191E9E6DB200B3A804 /* AddPlaylistViewController.swift */; };
 		367BD5631E9C0E9F00773F30 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367BD5621E9C0E9F00773F30 /* SignupViewController.swift */; };
 		36910C5A1E9B9CC600E33C3F /* LoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36910C591E9B9CC600E33C3F /* LoadViewController.swift */; };
 		36B2CFD01E97F20C00CC7917 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B2CFCF1E97F20C00CC7917 /* AppDelegate.swift */; };
-		36B2CFD21E97F20C00CC7917 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B2CFD11E97F20C00CC7917 /* ViewController.swift */; };
 		36B2CFD51E97F20C00CC7917 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36B2CFD31E97F20C00CC7917 /* Main.storyboard */; };
 		36B2CFD71E97F20C00CC7917 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36B2CFD61E97F20C00CC7917 /* Assets.xcassets */; };
 		36B2CFDA1E97F20C00CC7917 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36B2CFD81E97F20C00CC7917 /* LaunchScreen.storyboard */; };
@@ -20,11 +20,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		364CD5191E9E6DB200B3A804 /* AddPlaylistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPlaylistViewController.swift; sourceTree = "<group>"; };
 		367BD5621E9C0E9F00773F30 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		36910C591E9B9CC600E33C3F /* LoadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadViewController.swift; sourceTree = "<group>"; };
 		36B2CFCC1E97F20C00CC7917 /* Music Node.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Music Node.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		36B2CFCF1E97F20C00CC7917 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		36B2CFD11E97F20C00CC7917 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		36B2CFD41E97F20C00CC7917 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		36B2CFD61E97F20C00CC7917 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		36B2CFD91E97F20C00CC7917 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -65,7 +65,6 @@
 			isa = PBXGroup;
 			children = (
 				36B2CFCF1E97F20C00CC7917 /* AppDelegate.swift */,
-				36B2CFD11E97F20C00CC7917 /* ViewController.swift */,
 				36B2CFD31E97F20C00CC7917 /* Main.storyboard */,
 				36B2CFD61E97F20C00CC7917 /* Assets.xcassets */,
 				36B2CFD81E97F20C00CC7917 /* LaunchScreen.storyboard */,
@@ -75,6 +74,7 @@
 				36DA06691E9AA6B1001A915D /* PlaylistDetailController.swift */,
 				36910C591E9B9CC600E33C3F /* LoadViewController.swift */,
 				367BD5621E9C0E9F00773F30 /* SignupViewController.swift */,
+				364CD5191E9E6DB200B3A804 /* AddPlaylistViewController.swift */,
 			);
 			path = "Music Node";
 			sourceTree = "<group>";
@@ -155,8 +155,8 @@
 				36910C5A1E9B9CC600E33C3F /* LoadViewController.swift in Sources */,
 				367BD5631E9C0E9F00773F30 /* SignupViewController.swift in Sources */,
 				36DA066A1E9AA6B1001A915D /* PlaylistDetailController.swift in Sources */,
-				36B2CFD21E97F20C00CC7917 /* ViewController.swift in Sources */,
 				36B2CFD01E97F20C00CC7917 /* AppDelegate.swift in Sources */,
+				364CD51A1E9E6DB200B3A804 /* AddPlaylistViewController.swift in Sources */,
 				36DA06681E9A5780001A915D /* LoginViewController.swift in Sources */,
 				36B2CFE21E97F56B00CC7917 /* PlaylistViewController.swift in Sources */,
 			);
