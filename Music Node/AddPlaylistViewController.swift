@@ -45,6 +45,7 @@ class AddPlaylistViewController : UIViewController {
     
     @IBAction func onAdd(_ sender: Any) {
         self.loadIndicator.startAnimating()
+        self.navigationItem.hidesBackButton = true
         self.addButton.isEnabled = false
         
         let playlist_url = "https://music-node-api.herokuapp.com/api/playlists"
@@ -75,6 +76,7 @@ class AddPlaylistViewController : UIViewController {
             DispatchQueue.main.async {
                 self.loadIndicator.stopAnimating()
                 self.addButton.isEnabled = true
+                self.navigationItem.hidesBackButton = false
                 self.tempViewController?.reloadtableView()
                 self.showAlert()
             }
