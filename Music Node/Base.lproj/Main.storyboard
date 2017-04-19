@@ -147,7 +147,7 @@
         <!--Navigation-->
         <scene sceneID="qoO-v8-4wo">
             <objects>
-                <navigationController id="FGP-x6-rFc" sceneMemberID="viewController">
+                <navigationController toolbarHidden="NO" id="FGP-x6-rFc" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="Navigation" prompt="" id="AiZ-C2-Hvr"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Glw-rl-qkS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -158,6 +158,10 @@
                             <color key="textColor" red="0.99198132753372192" green="0.99604541063308716" blue="0.99596863985061646" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="DdT-hW-JsA">
+                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="iJt-Ev-ANp" kind="relationship" relationship="rootViewController" id="IsA-jq-GTQ"/>
                     </connections>
@@ -206,6 +210,9 @@
                             <outlet property="delegate" destination="iJt-Ev-ANp" id="u0i-JM-eB7"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem systemItem="search" id="F2h-EM-6Ny"/>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="Mijn afspeellijsten" id="HxZ-Sg-I3g">
                         <barButtonItem key="leftBarButtonItem" image="logout" id="zic-Eq-75l">
                             <connections>
@@ -483,7 +490,7 @@
         <image name="logout" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="ugW-bo-5ny"/>
         <segue reference="zm2-pi-XEn"/>
-        <segue reference="SFU-WL-7rs"/>
     </inferredMetricsTieBreakers>
 </document>

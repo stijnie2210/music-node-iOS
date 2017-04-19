@@ -23,6 +23,16 @@ class PlaylistViewController : UITableViewController {
         loadPlaylists()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setToolbarHidden(false, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setToolbarHidden(true, animated: animated)
+    }
+    
     func showUnauthorized() {
         let alertController = UIAlertController(title: "Error", message:
             "Niet toegestaan, log opnieuw in.", preferredStyle: UIAlertControllerStyle.alert)
@@ -38,12 +48,9 @@ class PlaylistViewController : UITableViewController {
         performSegue(withIdentifier: "toAddPlaylist", sender: self.addPlaylistButton)
     }
     
-    
-    
     @IBAction func reloadPlaylists(_ sender: Any) {
         reloadtableView()
     }
-    
     
     func reloadtableView() {
         self.playlists.removeAll()
